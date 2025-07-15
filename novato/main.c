@@ -1,29 +1,41 @@
-/* 
-Programa que utiliza estruturas de repetição para movimento das peças Torre, Bispo e Rainha no xadrez.
-*/
-
-#include <stdio.h>
-#define TAM_DIRECAO 10
+#include <stdio.h> 
 
 int main(void){
-    // Cada peça foi declara como uma variável contendo o número de movimentos que irá realizar;
-    int torre = 5;
-    int bispo = 5;
-    int rainha = 8;
-    // A inicialização da variável de controle foi omitida, pois já foi realizado anteriormente. 
-    for (; torre > 0; torre--){
-        printf("Torre -> Direita\n");\
+    int escolha;
+    int torre = 5, bispo = 5, rainha = 8;
+
+    while(1){
+        int i=1;
+        printf("1-Torre;\n2-Bispo;\n3-Rainha\nEscolha: ");
+        scanf("%d", &escolha);
+
+        switch (escolha){
+            case 1:
+                printf("Você escolheu: Torre\n");
+                for(;i<=torre;i++){
+                    printf("Direita\n");
+                }
+                break;
+            case 2: 
+                printf("Você escolheu: Bispo\n");
+                do{
+                    printf("Cima, Direita\n");
+                    i++;
+
+                } while(i<=bispo);
+                break;
+            case 3: 
+                printf("Você escolheu: Rainha\n");
+                while(i<=rainha){
+                    printf("Direita\n");
+                    i++;
+                }
+                break;
+            default:
+                printf("Escolha entre 1-3\n");
+            break;
+        }
     }
-    // Nessa estrutura, primeiro o statement é executado para posteriormente subtrair 1 da variável.
-    while (bispo > 0){
-        printf("Bispo -> Cima, Direita\n");
-        --bispo;
-    }
-    // Nessa outra estrutura, o inverso da estrutura anterior ocorre, ou seja, primeiro subtrai-se 1 da variável.
-    do{
-        rainha--;
-        printf("Rainha -> Esquerda\n");
-    } while(rainha > 0);
 
     return 0;
 }
